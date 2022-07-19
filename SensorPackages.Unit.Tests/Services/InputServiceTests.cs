@@ -17,7 +17,7 @@ namespace SensorPackages.Library.Services.Tests
     public class InputServiceTests
     {
         [Fact()]
-        public void ConvertStreamToPackages_Should_Return_CallOneToAddPacket()
+        public void ConvertStreamToPackages_Should_Return_CallTwoTimesToAddPacket()
         {
             //arrange
             var packageHandlerStub = Substitute.For<IPackageHandler>();

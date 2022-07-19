@@ -17,7 +17,7 @@ namespace SensorPackages.Library.Services.Tests
     public class OutputServiceTests
     {
         [Fact()]
-        public void GetOutputData_Should_Return()
+        public void GetOutputData_Should_ReturnStreamWithDataFromPackageMonitor()
         {
             //arrange
             var packageMonitor = new PackageMonitor("name");
