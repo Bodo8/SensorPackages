@@ -8,6 +8,6 @@ namespace SensorPackages.Library
 {
     public interface IMainClass
     {
-        void RunPackages();
+        bool RunPackages();
     }
 }

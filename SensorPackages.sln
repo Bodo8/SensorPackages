@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorPackages", "SensorPackages\SensorPackages.csproj", "{C7D05D6F-1C6A-4751-AF7E-FD56D66BCFDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorPackages", "SensorPackages\SensorPackages.csproj", "{C7D05D6F-1C6A-4751-AF7E-FD56D66BCFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorPackages.Library", "SensorPackages.Library\SensorPackages.Library.csproj", "{6CE52AA0-0373-4E77-8095-72D92A315696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorPackages.Library", "SensorPackages.Library\SensorPackages.Library.csproj", "{6CE52AA0-0373-4E77-8095-72D92A315696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorPackages.Unit.Tests", "SensorPackages.Unit.Tests\SensorPackages.Unit.Tests.csproj", "{D50BDCB4-A8EF-47BF-892D-24479967261B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SensorPackages.Unit.Tests", "SensorPackages.Unit.Tests\SensorPackages.Unit.Tests.csproj", "{D50BDCB4-A8EF-47BF-892D-24479967261B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorPackages.Tests.Integration", "SensorPackages.Tests.Integration\SensorPackages.Tests.Integration.csproj", "{4EE044F7-AAD2-4D64-9823-DA573C7AFCB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D50BDCB4-A8EF-47BF-892D-24479967261B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D50BDCB4-A8EF-47BF-892D-24479967261B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D50BDCB4-A8EF-47BF-892D-24479967261B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE044F7-AAD2-4D64-9823-DA573C7AFCB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE044F7-AAD2-4D64-9823-DA573C7AFCB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE044F7-AAD2-4D64-9823-DA573C7AFCB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE044F7-AAD2-4D64-9823-DA573C7AFCB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

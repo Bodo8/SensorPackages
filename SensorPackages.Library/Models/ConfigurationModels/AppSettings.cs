@@ -8,6 +8,6 @@ namespace SensorPackages.Library.Models.ConfigurationModels
 {
     public class AppSettings
     {
-        public int Name { get; set; }
+        public string Name { get; set; }
     }
 }
