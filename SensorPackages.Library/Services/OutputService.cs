@@ -1,4 +1,5 @@
-﻿using SensorPackages.Library.Logic.Interfaces;
+﻿using Microsoft.Extensions.Logging;
+using SensorPackages.Library.Logic.Interfaces;
 using SensorPackages.Library.Models;
 using SensorPackages.Library.Services.Interfaces;
 using System;
@@ -14,14 +15,16 @@ namespace SensorPackages.Library.Services
     {
         private readonly IPackageMonitor _pakageMonitor;
         private readonly IPackageHandler _packageHandler;
+        private MemoryStream? _outputStream;
 
         public OutputService(IPackageMonitor pakageMonitor, IPackageHandler packageHandler)
         {
             _pakageMonitor = pakageMonitor;
             _packageHandler = packageHandler;
+            _outputStream = null;
         }
 
-        public Stream GetOutputData()
+        public Stream? GetOutputData()
         {
             SortedList<long, Packet> paketPairs = _pakageMonitor.GetOutputData();
             StringBuilder builder = new StringBuilder();
@@ -36,11 +39,17 @@ namespace SensorPackages.Library.Services
             }
             byte[] packetData = Encoding.UTF8.GetBytes(builder.ToString());
 
-            var stream = new MemoryStream(packetData);
+            _outputStream = new MemoryStream(packetData);
             _pakageMonitor.OnCompleted();
             _packageHandler.OnCompleted();
 
-            return stream;
+            return _outputStream;
+        }
+
+        public void OnCompleted()
+        {
+            if(_outputStream != null )
+               _outputStream.Dispose();
         }
     }
 }

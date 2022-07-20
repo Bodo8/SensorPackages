@@ -11,6 +11,7 @@ using SensorPackages.Library.Logic.Interfaces;
 using NSubstitute;
 using System.IO;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
 
 namespace SensorPackages.Library.Services.Tests
 {
@@ -45,8 +46,11 @@ namespace SensorPackages.Library.Services.Tests
             };
         }
 
-        public string ConvertStreamToString(Stream stream)
+        public string? ConvertStreamToString(Stream stream)
         {
+            if (stream == null)
+                return null;
+
             using (var reader = new StreamReader(stream))
             {
                 StringBuilder builder = new StringBuilder();

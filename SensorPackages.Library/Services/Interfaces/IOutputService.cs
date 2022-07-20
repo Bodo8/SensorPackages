@@ -9,6 +9,7 @@ namespace SensorPackages.Library.Services.Interfaces
 {
     public interface IOutputService
     {
-        Stream GetOutputData();
+        Stream? GetOutputData();
+        void OnCompleted();
     }
 }
