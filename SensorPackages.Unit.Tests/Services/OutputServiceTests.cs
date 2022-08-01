@@ -22,8 +22,8 @@ namespace SensorPackages.Library.Services.Tests
         {
             //arrange
             var packageMonitor = new PackageMonitor("name");
-            var packageHandlerStub = Substitute.For<IPackageHandler>();
-            var sut = new OutputService(packageMonitor, packageHandlerStub);
+            var packageHandlerMock = Substitute.For<IPackageHandler>();
+            var sut = new OutputService(packageMonitor, packageHandlerMock);
             SortedList<long, Packet> paketPairs = GetPairs();
             foreach(var pair in paketPairs)
                 packageMonitor.OnNext(pair.Value);

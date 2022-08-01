@@ -20,18 +20,18 @@ namespace SensorPackages.Library.Services.Tests
         public void ConvertStreamToPackages_Should_Return_CallTwoTimesToAddPacket()
         {
             //arrange
-            var packageHandlerStub = Substitute.For<IPackageHandler>();
-            var factoryStub = Substitute.For<IPacketFactory>();
-            var sut = new InputService(packageHandlerStub, factoryStub);
+            var packageHandlerMock = Substitute.For<IPackageHandler>();
+            var factoryMock = Substitute.For<IPacketFactory>();
+            var sut = new InputService(packageHandlerMock, factoryMock);
             var lines = File.OpenRead(".input2.txt");
-            var packet = factoryStub.CreatePacket(1615560000, true);
-            factoryStub.CreatePacket(1615560000, true).Returns(packet);
+            var packet = factoryMock.CreatePacket(1615560000, true);
+            factoryMock.CreatePacket(1615560000, true).Returns(packet);
 
             //act
             sut.ConvertStreamToPackages(lines);
 
             //assert
-            packageHandlerStub.Received(2).AddPacket(packet);
+            packageHandlerMock.Received(2).AddPacket(packet);
         }
     }
 }

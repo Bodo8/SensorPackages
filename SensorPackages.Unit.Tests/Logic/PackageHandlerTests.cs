@@ -16,14 +16,14 @@ namespace SensorPackages.Library.Logic.Tests
     public class PackageHandlerTests
     {
         private readonly PackageHandler _sut;
-        private readonly ILogger<PackageHandler> _loggerStub;
-        private readonly IPackageMonitor _observerStub;
+        private readonly ILogger<PackageHandler> _loggerMock;
+        private readonly IPackageMonitor _observerMock;
 
         public PackageHandlerTests()
         {
-            _loggerStub = Substitute.For<ILogger<PackageHandler>>();
-            _observerStub = Substitute.For<IPackageMonitor>();
-            _sut = new PackageHandler(_loggerStub);
+            _loggerMock = Substitute.For<ILogger<PackageHandler>>();
+            _observerMock = Substitute.For<IPackageMonitor>();
+            _sut = new PackageHandler(_loggerMock);
         }
 
         [Fact()]
@@ -34,10 +34,10 @@ namespace SensorPackages.Library.Logic.Tests
             _sut.AddPacket(packet);
 
             //act
-            _sut.Subscribe(_observerStub);
+            _sut.Subscribe(_observerMock);
 
             //assert
-            _observerStub.Received(1).OnNext(packet);
+            _observerMock.Received(1).OnNext(packet);
         }
 
         [Fact()]
@@ -45,13 +45,13 @@ namespace SensorPackages.Library.Logic.Tests
         {
             //arrange;
             Packet packet = new(1615560000, false);
-            _sut.Subscribe(_observerStub);
+            _sut.Subscribe(_observerMock);
 
             //act
             _sut.AddPacket(packet);
 
             //assert
-            _observerStub.Received(1).OnNext(packet);
+            _observerMock.Received(1).OnNext(packet);
         }
 
         [Theory()]
