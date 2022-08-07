@@ -27,7 +27,7 @@ namespace SensorPackages.Library.Services
             {
                 while (!reader.EndOfStream)
                 {
-                    Packet packet = new();
+                    Packet? packet = null;
                     string? line = reader.ReadLine();
 
                     if (line != null)
@@ -40,7 +40,8 @@ namespace SensorPackages.Library.Services
                             packet = _packetFactory.CreatePacket(long.Parse(parts[0].Trim()), voltage);
                         }
                     }
-                    _packageHandler.AddPacket(packet);
+                    if(packet != null)
+                       _packageHandler.AddPacket(packet);
                 }
             }
         }

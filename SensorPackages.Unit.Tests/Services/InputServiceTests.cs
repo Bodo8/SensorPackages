@@ -17,21 +17,22 @@ namespace SensorPackages.Library.Services.Tests
     public class InputServiceTests
     {
         [Fact()]
-        public void ConvertStreamToPackages_Should_Return_CallTwoTimesToAddPacket()
+        public void ConvertStreamToPackages_Should_Call_OneTimesToAddPacket()
         {
             //arrange
             var packageHandlerMock = Substitute.For<IPackageHandler>();
             var factoryMock = Substitute.For<IPacketFactory>();
+            var factory = new PacketFactory();
             var sut = new InputService(packageHandlerMock, factoryMock);
-            var lines = File.OpenRead(".input2.txt");
-            var packet = factoryMock.CreatePacket(1615560000, true);
+            var lines = File.OpenRead(".input1.txt");
+            var packet = factory.CreatePacket(1615560000, true);
             factoryMock.CreatePacket(1615560000, true).Returns(packet);
 
             //act
             sut.ConvertStreamToPackages(lines);
 
             //assert
-            packageHandlerMock.Received(2).AddPacket(packet);
+            packageHandlerMock.Received(1).AddPacket(packet);
         }
     }
 }

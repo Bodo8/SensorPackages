@@ -18,7 +18,7 @@ namespace SensorPackages.Library.Models
             StateVoltage = stateVoltage;
         }
 
-        public long? UnixTime { get; set; }
+        public long UnixTime { get; set; }
         public bool StateVoltage { get; set; }
 
         public bool Equals(Packet? other)

@@ -27,7 +27,7 @@ namespace SensorPackages.Library.Logic
 
         public void AddPacket(Packet packet)
         {
-            if (packet.UnixTime !=null  && !_sortedPackets.ContainsKey((long)packet.UnixTime))
+            if (!_sortedPackets.ContainsKey((long)packet.UnixTime))
             {
                 _sortedPackets.Add((long)packet.UnixTime, packet);
                 bool change = FindChangeInPacket(packet);
